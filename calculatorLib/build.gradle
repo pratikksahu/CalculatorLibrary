@@ -48,35 +48,35 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
 }
-//task sourceJar(type: Jar) {
-//    from android.sourceSets.main.java.srcDirs
-//    classifier "sources"
-//}
-//publishing {
-//    publications {
-//        release(MavenPublication) {
-//            groupId 'com.github'
-//            artifactId 'CaculatorLibrary'
-//            version '1.0'
-//            artifact(sourceJar)
-//            artifact("$buildDir/outputs/aar/calculatorLib-release.aar")
-//        }
-//    }
-//    repositories {
-//        maven {
-//            url "$buildDir/repo"
-//        }
-//    }
-//}
-afterEvaluate {
-    publishing {
-        publications {
-            mavenRelease(MavenPublication) {
-                from components.release
-                groupId 'com.github.pratikksahu'
-                artifactId 'calculatorLib'
-                version '1.0'
-            }
+task sourceJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier "sources"
+}
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId 'com.pratik.CaculatorLibrary'
+            artifactId 'CaculatorLibrary'
+            version '1.0'
+            artifact(sourceJar)
+            artifact("$buildDir/outputs/aar/calculatorLib-release.aar")
+        }
+    }
+    repositories {
+        maven {
+            url "$buildDir/repo"
         }
     }
 }
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            mavenRelease(MavenPublication) {
+//                from components.release
+//                groupId 'com.github.pratikksahu'
+//                artifactId 'calculatorLib'
+//                version '1.0'
+//            }
+//        }
+//    }
+//}
