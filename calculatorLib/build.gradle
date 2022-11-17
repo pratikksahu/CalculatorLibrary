@@ -47,6 +47,9 @@ afterEvaluate {
         publications {
             mavenRelease(MavenPublication) {
                 from components.release
+                groupId 'com.github.pratikksahu'
+                artifactId 'calculatorlibrary'
+                version '1.0'
             }
         }
     }
