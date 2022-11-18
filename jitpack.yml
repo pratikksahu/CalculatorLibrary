@@ -1,7 +1,8 @@
 jdk:
-  -openjdk11
+  - openjdk11
 before_install:
-  -sdk install java 11.0.10-open
-  -sdk use java 11.0.10-open
+  - sdk install java 11.0.10-open
+  - sdk use java 11.0.10-open
 install:
-  -./gradlew build :calculatorLib:publishMavenReleasePublicationToMavenLocal
+  - - echo "Running a custom install command"
+  - ./gradlew build :calculatorLib:publishMavenReleasePublicationToMavenLocal
