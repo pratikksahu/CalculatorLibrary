@@ -64,15 +64,7 @@ publishing {
                 groupId = 'com.github.pratikksahu'
                 artifactId = 'calculatorLib'
                 version = '1.0'
-                pom.withXml {
-                    def dependenciesNode = asNode().appendNode('dependencies')
-                    configurations.compile.allDependencies.each { dependency ->
-                        def dependencyNode = dependenciesNode.appendNode('dependency')
-                        dependencyNode.appendNode('groupId', dependency.group)
-                        dependencyNode.appendNode('artifactId', dependency.name)
-                        dependencyNode.appendNode('version', dependency.version)
-                    }
-                }
+                artifact(bundleReleaseAar)
             }
 
         }
