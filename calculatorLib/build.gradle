@@ -38,6 +38,7 @@ android {
     lint {
         checkReleaseBuilds false
         abortOnError false
+        disable 'TypographyFractions','TypographyQuotes'
     }
     buildToolsVersion '33.0.0'
     ndkVersion '25.1.8937393'

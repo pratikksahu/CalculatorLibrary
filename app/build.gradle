@@ -37,6 +37,11 @@ android {
     kotlinOptions {
         jvmTarget = '11'
     }
+    lint {
+        checkReleaseBuilds false
+        abortOnError false
+        disable 'TypographyFractions','TypographyQuotes'
+    }
     ndkVersion '25.1.8937393'
 }
 
