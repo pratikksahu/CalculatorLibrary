@@ -1,21 +1,8 @@
-buildscript {
-    repositories {
-        maven { url "https://jitpack.io" }
-        maven { url "https://repo1.maven.org/maven2/" }
-        mavenLocal()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
-    }
-}
-
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'maven-publish'
-    id 'com.github.dcendents.android-maven'
 }
 group='com.github.pratikksahu'
 android {
@@ -71,6 +58,14 @@ publishing {
             artifact(sourceJar)
             artifact("$buildDir/outputs/aar/calculatorLib-release.aar")
         }
+        mavenRelease(MavenPublication) {
+            afterEvaluate {
+                from components.release
+                groupId = 'com.github.pratikksahu'
+                artifactId = 'calculatorLib'
+                version = '1.0'
+            }
+        }
     }
     repositories {
         maven {
@@ -90,3 +85,8 @@ publishing {
 //        }
 //    }
 //}
+task comps {
+    afterEvaluate {
+        println("Components: " + components*.name)
+    }
+}
