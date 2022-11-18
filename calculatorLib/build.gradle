@@ -36,6 +36,7 @@ android {
         jvmTarget = '11'
     }
     lint {
+        checkReleaseBuilds false
         abortOnError false
     }
     buildToolsVersion '33.0.0'
