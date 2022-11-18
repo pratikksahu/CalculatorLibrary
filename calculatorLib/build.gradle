@@ -1,15 +1,23 @@
 buildscript {
+    repositories {
+        maven { url "https://jitpack.io" }
+        maven { url "https://repo1.maven.org/maven2/" }
+        mavenLocal()
+        mavenCentral()
+    }
     dependencies {
-        classpath "com.android.tools.build:gradle:7.0.2"
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
     }
 }
 
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
     id 'maven-publish'
+    id 'com.github.dcendents.android-maven'
 }
-
+group='com.github.pratikksahu'
 android {
     namespace 'com.pratik.calculatorlib'
     compileSdk 33
@@ -40,6 +48,8 @@ android {
     kotlinOptions {
         jvmTarget = '11'
     }
+    buildToolsVersion '33.0.0'
+    ndkVersion '25.1.8937393'
 }
 
 dependencies {

@@ -1,6 +1,16 @@
+buildscript {
+    repositories {
+        maven { url "https://jitpack.io" }
+        maven { url "https://repo1.maven.org/maven2/" }
+        mavenLocal()
+        mavenCentral()
+    }
+}
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'maven-publish'
 }
 
 android {
@@ -35,6 +45,7 @@ android {
     kotlinOptions {
         jvmTarget = '11'
     }
+    ndkVersion '25.1.8937393'
 }
 
 dependencies {
